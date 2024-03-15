@@ -78,16 +78,8 @@ const navLinks = [
   navToggle?.addEventListener('click', () => {
     const header = document.querySelector('header')
     const nav = document.querySelector('nav')
-    if (header?.classList.contains('h-16')) {
-      header.classList.remove('h-16')
-      header.classList.add('h-[19rem]')
-      nav?.classList.remove('h-0')
-      nav?.classList.add('h-60')
-    } else {
-      header?.classList.remove('h-[19rem]')
-      header?.classList.add('h-16')
-      nav?.classList.remove('h-60')
-      nav?.classList.add('h-0')
-    }
+
+    header?.classList.toggle('h-[19rem]')
+    nav?.classList.toggle('h-60')
   })
 </script>
