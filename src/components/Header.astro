@@ -56,11 +56,11 @@ const navLinks = [
       class='w-full h-0 overflow-hidden transition-[height] ease-linear duration-75 sm:inline sm:w-fit sm:h-fit'
     >
       <ul
-        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-8 sm:text-lg sm:font-normal sm:bg-opacity-0'
+        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-2 sm:text-lg sm:font-normal md:gap-3'
       >
         {
           navLinks.map(({ name, href }) => (
-            <li class='lg:relative lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:bottom-0 lg:after:h-[.2rem] lg:after:bg-neutral-50 lg:after:rounded-2xl lg:after:scale-x-0 lg:after:origin-right lg:after:transition-transform lg:after:duration-300 lg:after:ease-in lg:hover:after:scale-x-100 lg:hover:after:origin-left'>
+            <li class='md:p-2.5 md:rounded-lg md:hover:bg-zinc-800'>
               <a href={href} aria-label={`Ir a ${name}`}>
                 {name}
               </a>
