@@ -1,0 +1,93 @@
+---
+const navLinks = [
+  { name: 'Home', href: '/#home' },
+  { name: 'Sobre mí', href: '/#aboutme' },
+  { name: 'Proyectos', href: '/#projects' },
+  { name: 'Contacto', href: '/#contact' },
+]
+---
+
+<header
+  class='fixed w-screen h-16 z-50 bg-[#17191F] text-neutral-50 transition-[height] ease-linear duration-75 sm:h-16'
+>
+  <div
+    class='max-w-4xl h-full mx-auto px-2 flex flex-col justify-between items-center sm:flex-row lg:px-0'
+  >
+    <div
+      class='w-full h-16 flex flex-row justify-between items-center sm:w-fit'
+    >
+      <a href='/#home'>
+        <svg width='50px' height='50px' viewBox='0 0 24 24' fill='none'>
+          <path
+            d='M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20'
+            stroke='#000000'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            class='stroke-red-600'></path>
+        </svg>
+      </a>
+
+      <button
+        id='nav-toggle'
+        type='button'
+        aria-label='Toggle Menu'
+        class='sm:hidden'
+      >
+        <svg
+          width='42'
+          height='42'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        >
+          <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+          <path d='M4 6l16 0'></path>
+          <path d='M4 12l16 0'></path>
+          <path d='M4 18l16 0'></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav
+      class='w-full h-0 overflow-hidden transition-[height] ease-linear duration-75 sm:inline sm:w-fit sm:h-fit'
+    >
+      <ul
+        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-8 sm:text-lg sm:font-normal sm:bg-opacity-0'
+      >
+        {
+          navLinks.map(({ name, href }) => (
+            <li class='lg:relative lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:bottom-0 lg:after:h-[.2rem] lg:after:bg-neutral-50 lg:after:rounded-2xl lg:after:scale-x-0 lg:after:origin-right lg:after:transition-transform lg:after:duration-300 lg:after:ease-in lg:hover:after:scale-x-100 lg:hover:after:origin-left'>
+              <a href={href} aria-label={`Ir a ${name}`}>
+                {name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle')
+
+  navToggle?.addEventListener('click', () => {
+    const header = document.querySelector('header')
+    const nav = document.querySelector('nav')
+    if (header?.classList.contains('h-16')) {
+      header.classList.remove('h-16')
+      header.classList.add('h-[19rem]')
+      nav?.classList.remove('h-0')
+      nav?.classList.add('h-60')
+    } else {
+      header?.classList.remove('h-[19rem]')
+      header?.classList.add('h-16')
+      nav?.classList.remove('h-60')
+      nav?.classList.add('h-0')
+    }
+  })
+</script>
