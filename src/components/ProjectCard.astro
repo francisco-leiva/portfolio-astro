@@ -12,9 +12,8 @@ export interface Props {
 const { image, title, description, website, github } = Astro.props
 ---
 
-<!-- lg:opacity-0 --><!-- isVisible ? 'lg:animate-reveal' : '' -->
 <article
-  class='max-w-sm w-full mx-auto min-h-[18rem] flex flex-col gap-4 rounded-xl text-neutral-50 bg-zinc-800 md:max-w-4xl md:p-4 md:flex-row md:items-center'
+  class='max-w-sm w-full mx-auto min-h-[18rem] flex flex-col gap-4 rounded-xl text-neutral-50 bg-zinc-800 md:max-w-4xl md:p-4 md:flex-row md:items-center lg:opacity-0'
 >
   <Image
     src={image}

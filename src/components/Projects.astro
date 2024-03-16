@@ -24,3 +24,23 @@ import { PROJECTS } from '@lib/projectsData'
     </section>
   </div>
 </section>
+
+<script>
+  const articles = document.querySelectorAll('article')
+
+  function intersectionCallback(entries: IntersectionObserverEntry[]) {
+    const [entry] = entries
+    if (entry.isIntersecting) {
+      entry.target.classList.add('lg:animate-reveal')
+      observer.unobserve(entry.target)
+    }
+  }
+
+  const observer = new IntersectionObserver(intersectionCallback, {
+    threshold: 0.5,
+  })
+
+  articles.forEach((article) => {
+    if (article) observer.observe(article)
+  })
+</script>
