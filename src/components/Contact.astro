@@ -1,0 +1,108 @@
+---
+import SuccessAlert from '@components/SuccessAlert.astro'
+import ErrorAlert from '@components/ErrorAlert.astro'
+---
+
+<section id='contact' class='w-full py-6'>
+  <div class='max-w-4xl mx-auto'>
+    <h2
+      class='mb-4 font-bold text-4xl text-center text-red-600 md:ml-0 md:text-5xl'
+    >
+      CONTACTO
+    </h2>
+
+    <form class='max-w-xl mx-auto'>
+      <div class='mx-4 py-3 flex flex-col gap-3 rounded-xl bg-zinc-800 sm:mx-0'>
+        <input
+          type='text'
+          name='name'
+          placeholder='Nombre'
+          required
+          class='w-auto h-12 mx-2 indent-3 text-neutral-900 bg-zinc-200 rounded-xl outline-none focus:border-2 focus:border-amber-500'
+        />
+
+        <input
+          id='emailInput'
+          type='email'
+          name='email'
+          placeholder='E-mail'
+          required
+          class='w-auto h-12 mx-2 indent-3 text-neutral-900 bg-zinc-200 rounded-xl outline-none focus:border-2 focus:border-amber-500'
+        />
+
+        <textarea
+          name='message'
+          placeholder='Mensaje'
+          required
+          class='w-auto h-40 mx-2 pt-2 pl-3 text-neutral-900 bg-zinc-200 rounded-xl resize-none outline-none focus:border-2 focus:border-amber-500'
+        ></textarea>
+
+        <button
+          id='submitBtn'
+          type='submit'
+          class='mx-2 px-5 py-3 text-amber-500 font-bold bg-transparent border-2 border-amber-500 rounded-xl text-center transition-all duration-200 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1 md:text-xl md:hover:translate-y-[-2px]'
+        >
+          Enviar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <SuccessAlert />
+  <ErrorAlert />
+</section>
+
+<script>
+  import emailjs from '@emailjs/browser'
+
+  const form = document.querySelector('form')
+  const emailInput = document.getElementById('emailInput')
+  const submitBtn = document.getElementById('submitBtn')
+
+  function validateEmail(email: FormDataEntryValue | null) {
+    return email
+      ?.toString()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+  }
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const data = Object.fromEntries(new FormData(form))
+
+    if (!validateEmail(data.email)) {
+      emailInput?.classList.add('focus:border-red-600')
+      emailInput?.focus()
+      return
+    } else {
+      emailInput?.classList.remove('focus:border-red-600')
+    }
+
+    submitBtn?.classList.add('opacity-50')
+    submitBtn?.classList.add('cursor-not-allowed')
+
+    emailjs
+      .sendForm(
+        'service_f5c03jq',
+        'template_zq8u2it',
+        event.target as HTMLFormElement,
+        {
+          publicKey: 'KZzriYxmiEQ6uCMGb',
+        }
+      )
+      .then(
+        () => {
+          document.getElementById('successAlert')?.classList.remove('hidden')
+          submitBtn?.classList.remove('opacity-50')
+          submitBtn?.classList.remove('cursor-not-allowed')
+
+          form.reset()
+        },
+        (error) => {
+          console.log('FAILED...', error.text)
+          document.getElementById('errorAlert')?.classList.remove('hidden')
+        }
+      )
+  })
+</script>
