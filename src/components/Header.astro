@@ -8,13 +8,13 @@ const navLinks = [
 ---
 
 <header
-  class='fixed w-screen h-16 z-50 bg-[#17191F] transition-[height] ease-linear duration-75 sm:h-16'
+  class='fixed w-screen h-16 has-[input:checked]:h-[19rem] z-50 bg-[#17191F] transition-[height] ease-linear duration-75 sm:h-16 sm:has-[input:checked]:h-16'
 >
   <div
     class='max-w-4xl h-full mx-auto px-2 flex flex-col justify-between items-center sm:flex-row lg:px-0'
   >
     <div
-      class='w-full h-16 flex flex-row justify-between items-center sm:w-fit'
+      class='w-full h-16 flex flex-row justify-between items-center peer sm:w-fit'
     >
       <a href='/#home'>
         <svg width='50px' height='50px' viewBox='0 0 24 24' fill='none'>
@@ -28,12 +28,7 @@ const navLinks = [
         </svg>
       </a>
 
-      <button
-        id='nav-toggle'
-        type='button'
-        aria-label='Toggle Menu'
-        class='sm:hidden'
-      >
+      <label for='menu-checkbox' class='sm:hidden'>
         <svg
           width='42'
           height='42'
@@ -49,18 +44,25 @@ const navLinks = [
           <path d='M4 12l16 0'></path>
           <path d='M4 18l16 0'></path>
         </svg>
-      </button>
+      </label>
+
+      <input
+        type='checkbox'
+        name='menu-checkbox'
+        id='menu-checkbox'
+        class='hidden'
+      />
     </div>
 
     <nav
-      class='w-full h-0 overflow-hidden transition-[height] ease-linear duration-75 sm:inline sm:w-fit sm:h-fit'
+      class='w-full h-0 peer-has-[input:checked]:h-60 overflow-hidden transition-[height] ease-linear duration-75 sm:inline sm:w-fit sm:h-fit sm:peer-has-[input:checked]:h-fit'
     >
       <ul
-        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-2 sm:text-lg sm:font-normal md:gap-3'
+        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-2.5 sm:text-lg sm:font-normal md:gap-3'
       >
         {
           navLinks.map(({ name, href }) => (
-            <li class='md:p-2.5 md:rounded-lg md:hover:bg-zinc-800'>
+            <li class='md:px-2.5 md:py-2 md:rounded-xl md:hover:bg-zinc-700 md:transition-all md:duration-100 md:ease-linear'>
               <a href={href} aria-label={`Ir a ${name}`}>
                 {name}
               </a>
@@ -71,15 +73,3 @@ const navLinks = [
     </nav>
   </div>
 </header>
-
-<script>
-  const navToggle = document.getElementById('nav-toggle')
-
-  navToggle?.addEventListener('click', () => {
-    const header = document.querySelector('header')
-    const nav = document.querySelector('nav')
-
-    header?.classList.toggle('h-[19rem]')
-    nav?.classList.toggle('h-60')
-  })
-</script>
