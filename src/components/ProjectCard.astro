@@ -23,11 +23,11 @@ const { image, title, description, website, github } = Astro.props
 
   <div class='px-4 pb-4 md:p-0 md:self-center'>
     <div class='mb-4'>
-      <h5
+      <h3
         class='mb-2 text-amber-500 text-2xl font-bold leading-snug tracking-normal'
       >
         {title}
-      </h5>
+      </h3>
 
       <p class='text-base font-medium leading-normal text-inherit md:text-lg'>
         {description}
@@ -39,7 +39,7 @@ const { image, title, description, website, github } = Astro.props
         href={website}
         target='_blank'
         aria-label='Go to live site'
-        class='inline-block px-5 py-3 font-semibold bg-red-600 border-2 border-red-600 rounded-xl outline-none text-center transition-all duration-200 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1 md:hover:translate-y-[-2px]'
+        class='inline-block px-5 py-3 font-semibold bg-red-700 border-2 border-red-700 rounded-xl outline-none text-center transition-all duration-200 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1 md:hover:translate-y-[-2px]'
       >
         Preview
       </a>

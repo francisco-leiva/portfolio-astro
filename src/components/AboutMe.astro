@@ -31,24 +31,26 @@ const skills = [
 
 <section id='aboutme' class='w-full py-6'>
   <div class='max-w-4xl mx-auto'>
-    <h2 class='font-bold text-4xl text-center text-red-600 md:ml-0 md:text-5xl'>
+    <h2
+      class='mb-4 font-bold text-4xl text-center text-red-600 md:ml-0 md:text-5xl'
+    >
       SOBRE MI
     </h2>
 
-    <p class='mx-4 my-6 text-2xl font-medium md:mx-0'>
+    <p class='mx-4 mb-4 text-2xl font-medium md:mx-auto md:max-w-[52rem]'>
       Tengo 23 años. En búsqueda de mi primer experiencia como programador.
       Cuento con habilidades en Javascript y React, adquiridas a través de la
       creación de proyectos personales. Estoy muy motivado en poder formar parte
       de un equipo para poder seguir creciendo y potenciando mis habilidades.
     </p>
 
-    <div class='py-4'>
-      <h3 class='font-bold text-3xl text-center text-amber-500 md:ml-0'>
+    <div>
+      <h3 class='mb-4 font-bold text-3xl text-center text-amber-500 md:ml-0'>
         HABILIDADES
       </h3>
 
       <div
-        class='max-w-lg mx-auto my-4 px-4 grid grid-cols-3 gap-8 justify-items-center sm:px-0 sm:grid-cols-4 sm:gap-12'
+        class='max-w-lg mx-auto px-4 grid grid-cols-3 gap-8 justify-items-center sm:px-0 sm:grid-cols-4 sm:gap-12'
       >
         {
           skills.map(({ name, icon }) => (
