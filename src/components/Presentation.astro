@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import me from '@assets/img/me.webp'
+import francisco from '@assets/img/francisco.webp'
 ---
 
 <section id='home' class='w-full h-[100svh]'>
@@ -23,7 +23,7 @@ import me from '@assets/img/me.webp'
           href='https://github.com/francisco-leiva'
           target='_blank'
           aria-label='Go to Github profile'
-          class='inline-block relative px-7 py-3 text-base font-bold border-[3px] border-red-600 bg-transparent overflow-hidden no-underline z-[1] active:bg-red-600 md:before:absolute md:before:left-0 md:before:top-0 md:before:w-full md:before:h-full md:before:bg-red-600 md:before:-translate-x-full md:before:transition-all md:before:duration-300 md:before:z-[-1] md:before:hover:translate-x-0'
+          class='inline-block relative px-7 py-3 text-base font-bold border-[3px] border-red-700 bg-transparent overflow-hidden no-underline z-[1] active:bg-red-700 md:before:absolute md:before:left-0 md:before:top-0 md:before:w-full md:before:h-full md:before:bg-red-700 md:before:-translate-x-full md:before:transition-all md:before:duration-300 md:before:z-[-1] md:before:hover:translate-x-0'
         >
           GitHub
         </a>
@@ -32,18 +32,18 @@ import me from '@assets/img/me.webp'
           href='https://www.linkedin.com/in/franciscoleiva14/'
           target='_blank'
           aria-label='Go to LinkedIn profile'
-          class='inline-block relative ml-3 px-7 py-3 text-base font-bold border-[3px] border-red-600 bg-transparent overflow-hidden no-underline z-[1] active:bg-red-600 md:before:absolute md:before:left-0 md:before:top-0 md:before:w-full md:before:h-full md:before:bg-red-600 md:before:-translate-x-full md:before:transition-all md:before:duration-300 md:before:z-[-1] md:before:hover:translate-x-0'
+          class='inline-block relative ml-3 px-7 py-3 text-base font-bold border-[3px] border-red-700 bg-transparent overflow-hidden no-underline z-[1] active:bg-red-700 md:before:absolute md:before:left-0 md:before:top-0 md:before:w-full md:before:h-full md:before:bg-red-700 md:before:-translate-x-full md:before:transition-all md:before:duration-300 md:before:z-[-1] md:before:hover:translate-x-0'
         >
           LinkedIn
         </a>
       </div>
     </div>
 
-    <div class='w-64 h-64 mx-auto sm:w-72 sm:h-72 sm:mx-0 md:w-80 md:h-80'>
+    <div class='w-72 h-auto mx-auto aspect-square sm:mx-0 md:w-80'>
       <Image
-        src={me}
+        src={francisco}
         alt='Francisco Leiva'
-        class='w-full h-full rounded-full object-cover object-center'
+        class='w-full h-full aspect-square rounded-full object-cover'
       />
     </div>
   </div>
