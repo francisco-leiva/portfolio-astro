@@ -48,7 +48,7 @@ const navLinks = [
     </label>
 
     <div
-      class='flex-[1_1_100%] h-0 overflow-hidden peer-has-[input:checked]:h-[12.5rem] peer-has-[input:checked]:mb-4 transition-[height] ease-linear duration-75 sm:inline-block sm:flex-initial sm:w-fit sm:h-fit sm:peer-has-[input:checked]:h-fit sm:peer-has-[input:checked]:mb-0'
+      class='flex-[1_1_100%] h-0 overflow-hidden peer-has-[input:checked]:h-[12.5rem] peer-has-[input:checked]:mb-4 transition-[height] ease-linear duration-75 sm:inline-block sm:flex-initial sm:w-fit sm:h-fit sm:peer-has-[input:checked]:h-auto sm:peer-has-[input:checked]:mb-0'
     >
       <ul
         class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-3 sm:text-lg sm:font-normal md:text-xl'
@@ -56,7 +56,7 @@ const navLinks = [
         {
           navLinks.map(({ name, href }) => (
             <li class='md:px-2.5 md:py-2 md:rounded-xl md:hover:bg-zinc-700 md:transition-all md:duration-100 md:ease-linear'>
-              <a href={href} aria-label={`Ir a ${name}`}>
+              <a href={href} aria-label={`Ir a ${name}`} class='navLinks'>
                 {name}
               </a>
             </li>
@@ -66,3 +66,16 @@ const navLinks = [
     </div>
   </nav>
 </header>
+
+<script>
+  const checkboxInput = document.getElementById(
+    'checkboxInput'
+  ) as HTMLInputElement
+  const navLinks = document.querySelectorAll('.navLinks')
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      checkboxInput.checked = false
+    })
+  })
+</script>
