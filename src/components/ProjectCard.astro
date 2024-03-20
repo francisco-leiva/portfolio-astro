@@ -18,6 +18,8 @@ const { image, title, description, website, github } = Astro.props
   <Image
     src={image}
     alt={title}
+    width={1920}
+    height={1080}
     class='max-w-sm w-full h-full object-cover rounded-t-xl aspect-video md:max-w-md md:rounded-xl md:shadow-md'
   />
 
