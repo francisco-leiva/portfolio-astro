@@ -7,58 +7,51 @@ const navLinks = [
 ]
 ---
 
-<header
-  class='fixed w-screen h-16 has-[input:checked]:h-[19rem] z-50 bg-[#16191F] transition-[height] ease-linear duration-75 sm:h-16 sm:has-[input:checked]:h-16'
->
-  <div
-    class='max-w-4xl h-full mx-auto px-2 flex flex-col justify-between items-center sm:flex-row lg:px-0'
+<header class='fixed w-screen z-50 bg-[#16191F]'>
+  <nav
+    class='max-w-4xl h-full mx-auto px-2 flex flex-wrap justify-between items-center lg:px-0'
   >
-    <div
-      class='w-full h-16 flex flex-row justify-between items-center peer sm:w-fit'
-    >
-      <a href='/#home' aria-label='Ir a Inicio'>
-        <svg width='50px' height='50px' viewBox='0 0 24 24' fill='none'>
-          <path
-            d='M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20'
-            stroke='#000000'
-            stroke-width='2'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            class='stroke-red-600'></path>
-        </svg>
-      </a>
-
-      <label for='menu-checkbox' class='sm:hidden'>
-        <svg
-          width='42'
-          height='42'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
+    <a href='/#home' aria-label='Ir a Inicio' class='my-3 sm:my-2'>
+      <svg width='50px' height='50px' viewBox='0 0 24 24' fill='none'>
+        <path
+          d='M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20'
+          stroke='#000000'
           stroke-width='2'
           stroke-linecap='round'
           stroke-linejoin='round'
-        >
-          <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-          <path d='M4 6l16 0'></path>
-          <path d='M4 12l16 0'></path>
-          <path d='M4 18l16 0'></path>
-        </svg>
-      </label>
+          class='stroke-red-600'></path>
+      </svg>
+    </a>
+
+    <label for='checkboxInput' class='peer sm:hidden'>
+      <svg
+        width='42'
+        height='42'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      >
+        <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+        <path d='M4 8l16 0'></path>
+        <path d='M4 16l16 0'></path>
+      </svg>
 
       <input
         type='checkbox'
-        name='menu-checkbox'
-        id='menu-checkbox'
+        name='checkbox'
+        id='checkboxInput'
         class='hidden'
       />
-    </div>
+    </label>
 
-    <nav
-      class='w-full h-0 peer-has-[input:checked]:h-60 overflow-hidden transition-[height] ease-linear duration-75 sm:inline sm:w-fit sm:h-fit sm:peer-has-[input:checked]:h-fit'
+    <div
+      class='flex-[1_1_100%] h-0 overflow-hidden peer-has-[input:checked]:h-[12.5rem] peer-has-[input:checked]:mb-4 transition-[height] ease-linear duration-75 sm:inline-block sm:flex-initial sm:w-fit sm:h-fit sm:peer-has-[input:checked]:h-fit sm:peer-has-[input:checked]:mb-0'
     >
       <ul
-        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-2.5 sm:text-lg sm:font-normal md:gap-3'
+        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold uppercase sm:h-fit sm:flex-row sm:justify-normal sm:gap-3 sm:text-lg sm:font-normal md:text-xl'
       >
         {
           navLinks.map(({ name, href }) => (
@@ -70,6 +63,6 @@ const navLinks = [
           ))
         }
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
