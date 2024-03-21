@@ -1,32 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-import htmlSvg from '@assets/svg/html.svg'
-import cssSvg from '@assets/svg/css.svg'
-import sassSvg from '@assets/svg/sass.svg'
-import tailwindSvg from '@assets/svg/tailwind.svg'
-import jsSvg from '@assets/svg/javascript.svg'
-import tsSvg from '@assets/svg/typescript.svg'
-import reactSvg from '@assets/svg/react.svg'
-import viteSvg from '@assets/svg/vite.svg'
-import nextJsSvg from '@assets/svg/nextjs.svg'
-import astroSvg from '@assets/svg/astro.svg'
-import gitSvg from '@assets/svg/git.svg'
-import githubSvg from '@assets/svg/github.svg'
-
-const skills = [
-  { name: 'HTML', icon: htmlSvg },
-  { name: 'CSS', icon: cssSvg },
-  { name: 'SASS', icon: sassSvg },
-  { name: 'Tailwind', icon: tailwindSvg },
-  { name: 'JavaScript', icon: jsSvg },
-  { name: 'TypeScript', icon: tsSvg },
-  { name: 'React', icon: reactSvg },
-  { name: 'Vite', icon: viteSvg },
-  { name: 'Next.js', icon: nextJsSvg },
-  { name: 'Astro', icon: astroSvg },
-  { name: 'Git', icon: gitSvg },
-  { name: 'Github', icon: githubSvg },
-]
+import SkillsIcons from './SkillsIcons.astro'
 ---
 
 <section id='aboutme' class='w-full py-6'>
@@ -45,24 +18,14 @@ const skills = [
     </p>
 
     <div>
-      <h3 class='mb-4 font-bold text-3xl text-center text-amber-500 md:ml-0'>
+      <h3 class='mb-4 font-bold text-3xl text-center text-amber-400 md:ml-0'>
         HABILIDADES
       </h3>
 
       <div
-        class='max-w-lg mx-auto px-4 grid grid-cols-3 gap-8 justify-items-center sm:px-0 sm:grid-cols-4 sm:gap-12'
+        class='max-w-lg mx-auto px-4 grid grid-cols-3 gap-8 justify-items-center sm:px-0 sm:grid-cols-4 sm:gap-12 lg:[&_svg]:transition-transform lg:[&_svg]:duration-300 lg:[&_svg]:ease-in lg:[&_svg:hover]:scale-125'
       >
-        {
-          skills.map(({ name, icon }) => (
-            <Image
-              src={icon}
-              alt={name}
-              width={56}
-              height={56}
-              class='lg:transition-transform lg:duration-300 lg:ease-in lg:hover:scale-125'
-            />
-          ))
-        }
+        <SkillsIcons />
       </div>
     </div>
   </div>
