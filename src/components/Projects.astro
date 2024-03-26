@@ -28,7 +28,7 @@ import { PROJECTS } from '@lib/projectsData'
 </section>
 
 <script>
-  const articles = document.querySelectorAll('article')
+  const projectCards = document.querySelectorAll('article')
 
   function intersectionCallback(entries: IntersectionObserverEntry[]) {
     const [entry] = entries
@@ -42,7 +42,7 @@ import { PROJECTS } from '@lib/projectsData'
     threshold: 0.5,
   })
 
-  articles.forEach((article) => {
-    if (article) observer.observe(article)
+  projectCards.forEach((projectCard) => {
+    if (projectCard) observer.observe(projectCard)
   })
 </script>
