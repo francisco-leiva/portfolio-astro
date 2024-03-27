@@ -1,5 +1,4 @@
 ---
-import SuccessAlert from '@components/SuccessAlert.astro'
 import ErrorAlert from '@components/ErrorAlert.astro'
 ---
 
@@ -12,13 +11,15 @@ import ErrorAlert from '@components/ErrorAlert.astro'
     </h2>
 
     <form class='max-w-xl mx-auto'>
-      <div class='mx-4 py-3 flex flex-col gap-3 rounded-xl bg-zinc-800 sm:mx-0'>
+      <div
+        class='mx-4 py-3 flex flex-col gap-3 rounded-xl bg-[#0a0a0a] sm:mx-0'
+      >
         <input
           type='text'
           name='name'
           placeholder='Nombre'
           required
-          class='w-auto h-12 mx-2 indent-3 text-neutral-900 bg-zinc-200 rounded-xl outline-none focus:border-2 focus:border-amber-400'
+          class='w-auto h-12 mx-2 indent-3 text-neutral-900 bg-zinc-100 rounded-xl outline-none focus:border-2 focus:border-amber-400'
         />
 
         <input
@@ -27,20 +28,20 @@ import ErrorAlert from '@components/ErrorAlert.astro'
           name='email'
           placeholder='E-mail'
           required
-          class='w-auto h-12 mx-2 indent-3 text-neutral-900 bg-zinc-200 rounded-xl outline-none focus:border-2 focus:border-amber-400'
+          class='w-auto h-12 mx-2 indent-3 text-neutral-900 bg-zinc-100 rounded-xl outline-none focus:border-2 focus:border-amber-400'
         />
 
         <textarea
           name='message'
           placeholder='Mensaje'
           required
-          class='w-auto h-40 mx-2 pt-2 pl-3 text-neutral-900 bg-zinc-200 rounded-xl resize-none outline-none focus:border-2 focus:border-amber-400'
+          class='w-auto h-40 mx-2 pt-2 pl-3 text-neutral-900 bg-zinc-100 rounded-xl resize-none outline-none focus:border-2 focus:border-amber-400'
         ></textarea>
 
         <button
           id='submitBtn'
           type='submit'
-          class='mx-2 px-5 py-3 text-amber-400 font-bold bg-transparent border-2 border-amber-400 rounded-xl text-center transition-all duration-200 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1 md:text-xl hover:bg-amber-400 hover:text-zinc-950'
+          class='mx-2 py-3 text-amber-400 font-bold bg-transparent border-2 border-amber-400 rounded-xl text-center transition-all duration-200 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1 md:text-xl hover:bg-amber-400 hover:text-zinc-900'
         >
           Enviar
         </button>
@@ -48,7 +49,6 @@ import ErrorAlert from '@components/ErrorAlert.astro'
     </form>
   </div>
 
-  <SuccessAlert />
   <ErrorAlert />
 </section>
 
@@ -57,7 +57,7 @@ import ErrorAlert from '@components/ErrorAlert.astro'
 
   const form = document.querySelector('form')
   const emailInput = document.getElementById('emailInput')
-  const submitBtn = document.getElementById('submitBtn')
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement
 
   function validateEmail(email: FormDataEntryValue | null) {
     return email
@@ -72,15 +72,23 @@ import ErrorAlert from '@components/ErrorAlert.astro'
     const data = Object.fromEntries(new FormData(form))
 
     if (!validateEmail(data.email)) {
-      emailInput?.classList.add('focus:border-red-600')
+      emailInput?.classList.add(
+        'border-2',
+        'border-red-600',
+        'focus:border-red-600'
+      )
       emailInput?.focus()
       return
     } else {
-      emailInput?.classList.remove('focus:border-red-600')
+      emailInput?.classList.remove(
+        'border-2',
+        'border-red-600',
+        'focus:border-red-600'
+      )
     }
 
-    submitBtn?.classList.add('opacity-50')
-    submitBtn?.classList.add('cursor-not-allowed')
+    submitBtn.innerText = 'Enviando...'
+    submitBtn?.classList.add('opacity-50', 'cursor-not-allowed')
 
     emailjs
       .sendForm(
@@ -93,9 +101,12 @@ import ErrorAlert from '@components/ErrorAlert.astro'
       )
       .then(
         () => {
-          document.getElementById('successAlert')?.classList.remove('hidden')
-          submitBtn?.classList.remove('opacity-50')
-          submitBtn?.classList.remove('cursor-not-allowed')
+          submitBtn.innerText = 'Enviado!'
+
+          setTimeout(() => {
+            submitBtn.innerText = 'Enviar'
+            submitBtn?.classList.remove('opacity-50', 'cursor-not-allowed')
+          }, 3000)
 
           form.reset()
         },
