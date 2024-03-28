@@ -8,10 +8,11 @@ const navLinks = [
 ---
 
 <header class='fixed top-4 right-4 z-50 md:left-0 md:right-0'>
-  <nav
-    class='flex flex-col items-end gap-2 md:max-w-4xl md:mx-auto md:items-center'
-  >
-    <label for='checkboxInput' class='p-2 bg-black rounded-full peer md:hidden'>
+  <nav class='flex flex-col gap-2 md:max-w-4xl md:mx-auto md:items-center'>
+    <label
+      for='checkboxInput'
+      class='p-2 bg-yellow-400 text-black self-end rounded-full peer md:hidden'
+    >
       <svg
         width='42'
         height='42'
@@ -36,10 +37,10 @@ const navLinks = [
     </label>
 
     <div
-      class='w-[calc(100vw-2rem)] py-4 hidden bg-black rounded-xl peer-has-[input:checked]:block animate-menuIn origin-top-right md:inline-block md:w-fit md:px-6 md:peer-has-[input:checked]:inline-block md:animate-none md:rounded-full'
+      class='w-[calc(100svw-2rem)] py-4 hidden bg-yellow-400 text-black rounded-xl peer-has-[input:checked]:block animate-menuIn origin-top-right md:inline-block md:w-fit md:px-6 md:bg-black md:text-zinc-100 md:peer-has-[input:checked]:inline-block md:animate-none md:rounded-full'
     >
       <ul
-        class='h-full flex flex-col justify-center items-center gap-6 text-2xl text-zinc-100 font-semibold md:h-fit md:flex-row md:justify-normal md:font-normal md:text-xl'
+        class='h-full flex flex-col justify-center items-center gap-6 text-2xl font-semibold md:h-fit md:flex-row md:justify-normal md:font-normal md:text-xl'
       >
         {
           navLinks.map(({ name, href }) => (
@@ -63,7 +64,7 @@ const navLinks = [
       'checkboxInput'
     ) as HTMLInputElement
 
-    checkboxInput.checked = !checkboxInput.checked
+    checkboxInput.checked = false
   }
 
   navLinks.forEach((link) => {
