@@ -13,15 +13,18 @@ import { PROJECTS } from '@lib/projectsData'
 
     <section class='mx-4 flex flex-col gap-6 sm:gap-8 lg:mx-0'>
       {
-        PROJECTS.map(({ title, image, description, website, github }) => (
-          <ProjectCard
-            title={title}
-            image={image}
-            description={description}
-            website={website}
-            github={github}
-          />
-        ))
+        PROJECTS.map(
+          ({ title, image, description, website, github }, index) => (
+            <ProjectCard
+              index={index}
+              title={title}
+              image={image}
+              description={description}
+              website={website}
+              github={github}
+            />
+          )
+        )
       }
     </section>
   </div>
