@@ -36,13 +36,13 @@ import { PROJECTS } from '@lib/projectsData'
   function intersectionCallback(entries: IntersectionObserverEntry[]) {
     const [entry] = entries
     if (entry.isIntersecting) {
-      entry.target.classList.add('lg:animate-reveal')
+      entry.target.classList.add('!translate-y-0', '!opacity-100')
       observer.unobserve(entry.target)
     }
   }
 
   const observer = new IntersectionObserver(intersectionCallback, {
-    threshold: 0.5,
+    threshold: 0.6,
   })
 
   projectCards.forEach((projectCard) => {
