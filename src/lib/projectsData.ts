@@ -1,7 +1,7 @@
+import spotifyCloneImg from '@assets/img/spotifyclone.webp'
 import cineflixImg from '@assets/img/cineflix.webp'
 import weatherImg from '@assets/img/weather.webp'
 import claroImg from '@assets/img/claro.webp'
-import blancoYNegroImg from '@assets/img/blanco-y-negro.webp'
 
 interface ProjectsData {
   title: string
@@ -13,10 +13,18 @@ interface ProjectsData {
 
 export const PROJECTS: ProjectsData[] = [
   {
+    title: 'Spotify Clone',
+    image: spotifyCloneImg,
+    description:
+      'Clon del reproductor de música de Spotify con reproducción de canciones, playlists, y mucho más. Hecho con Astro, React, Tailwind y Zustand para manejar estados globales.',
+    website: 'https://spotifyclone-fleiva.netlify.app/',
+    github: 'https://github.com/francisco-leiva/spotify-clone',
+  },
+  {
     title: 'Cineflix',
     image: cineflixImg,
     description:
-      'Buscador de películas y series de televisión. Prodrás encontrar tus títulos favoritos y ver una breve descripción de ellos.',
+      'Descubre las películas y series más populares del momento. Te mantiene al tanto de las tendencias en el mundo del entretenimiento. Hecho con Next.js, Tailwind y NextUI para la paginación.',
     website: 'https://cineflix-fleiva.vercel.app/',
     github: 'https://github.com/francisco-leiva/movies-app',
   },
@@ -24,7 +32,7 @@ export const PROJECTS: ProjectsData[] = [
     title: 'Weather',
     image: weatherImg,
     description:
-      'Aplicación del clima en tiempo real. Brinda un pronóstico del tiempo por horas y por días. Según del tipo de clima, la web cambia de color.',
+      'Aplicación para mantenerte informado sobre las condiciones climáticas actuales y futuras en tu ubicación. Hecho con Vite, React y Context para cambiar de tema según el clima.',
     website: 'https://weather-fleiva.netlify.app/',
     github: 'https://github.com/francisco-leiva/weather-app',
   },
@@ -32,16 +40,8 @@ export const PROJECTS: ProjectsData[] = [
     title: 'Claro',
     image: claroImg,
     description:
-      'Tienda de celulares y accesorios. En ella encontrarás productos de marcas conocidas. Copia de Claro Argentina hecha con React.',
+      'Clon de Claro Argentina, página que se dedica a la venta de teléfonos móviles y accesorios. Hecho con React, SASS, Context para el carrito de la compra y Firebase para la base de datos.',
     website: 'https://claroarg.netlify.app/',
     github: 'https://github.com/francisco-leiva/react-js',
-  },
-  {
-    title: 'Blanco y Negro',
-    image: blancoYNegroImg,
-    description:
-      'Venta de zapatos y zapatillas para hombres, mujeres y niños. E-commerce hecho con Javascript.',
-    website: 'https://blanco-y-negro.netlify.app/',
-    github: 'https://github.com/francisco-leiva/javascript',
   },
 ]
