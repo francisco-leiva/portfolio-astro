@@ -16,7 +16,7 @@ export const PROJECTS: ProjectsData[] = [
     title: 'Spotify Clone',
     image: spotifyCloneImg,
     description:
-      'Clon del reproductor de música de Spotify con reproducción de canciones, playlists, y mucho más. Hecho con Astro, React, Tailwind y Zustand para manejar estados globales.',
+      'Clon del reproductor de música de Spotify. Reproduce de canciones, explora playlists, y mucho más. Hecho con Astro, React, Tailwind y Zustand para manejar estados globales.',
     website: 'https://spotifyclone-fleiva.netlify.app/',
     github: 'https://github.com/francisco-leiva/spotify-clone',
   },
@@ -24,7 +24,7 @@ export const PROJECTS: ProjectsData[] = [
     title: 'Cineflix',
     image: cineflixImg,
     description:
-      'Descubre las películas y series más populares del momento. Te mantiene al tanto de las tendencias en el mundo del entretenimiento. Hecho con Next.js, Tailwind y NextUI para la paginación.',
+      'Descubre las películas y series más populares del momento. Te mantiene al tanto de las tendencias en el mundo del entretenimiento. Hecho con Next.js y Tailwind.',
     website: 'https://cineflix-fleiva.vercel.app/',
     github: 'https://github.com/francisco-leiva/movies-app',
   },
@@ -32,7 +32,7 @@ export const PROJECTS: ProjectsData[] = [
     title: 'Weather',
     image: weatherImg,
     description:
-      'Aplicación para mantenerte informado sobre las condiciones climáticas actuales y futuras en tu ubicación. Hecho con Vite, React y Context para cambiar de tema según el clima.',
+      'Mantenente informado sobre las condiciones climáticas en tu ubicación. También cuenta con un buscador para informarte sobre el clima en otras ciudades. Hecho con Vite, React y Tailwind.',
     website: 'https://weather-fleiva.netlify.app/',
     github: 'https://github.com/francisco-leiva/weather-app',
   },
