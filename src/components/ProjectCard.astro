@@ -14,7 +14,7 @@ const { index, image, title, description, website, github } = Astro.props
 ---
 
 <article
-  class={`max-w-sm w-full mx-auto min-h-72 flex flex-col gap-4 bg-[#303030] rounded-xl opacity-0 transition-all duration-1000 translate-y-14 md:max-w-4xl md:px-4 md:flex-row md:items-center ${index % 2 === 0 ? 'lg:pl-0' : 'lg:pr-0'}`}
+  class={`max-w-sm w-full mx-auto min-h-72 flex flex-col gap-4 bg-[#272727] bg-opacity-75 backdrop-blur-lg backdrop-saturate-[180%] rounded-xl border border-[rgba(255,255,255,0.125)] opacity-0 transition-all duration-1000 translate-y-14 md:max-w-4xl md:px-4 md:flex-row md:items-center ${index % 2 === 0 ? 'lg:pl-0' : 'lg:pr-0'}`}
 >
   <Image
     src={image}
